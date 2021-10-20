@@ -18,7 +18,17 @@ namespace Data.Services.ProductAPI.Repository
         }
         public async Task<ProductDto> CreateUpdateProduct(ProductDto productDto)
         {
-            throw new NotImplementedException();
+            Product product = _mapper.Map<ProductDto, Product>(productDto);
+            if (product.ProductId > 0)
+            {
+                _db.Products.Update(product);
+            }
+            else
+            {
+                _db.Products.Add(product);
+            }
+            await _db.SaveChangesAsync();
+            return _mapper.Map<Product, ProductDto>(product);
         }
 
         public async Task<bool> DeleteProduct(int productId)
