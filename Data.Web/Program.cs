@@ -1,4 +1,14 @@
+using Data.Web;
+using Data.Web.Services;
+using Data.Web.Services.IServices;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddHttpClient<IProductService, ProductService>();
+SD.ProductAPIBase = "https://localhost:7198/";// Configuration["ServiceUrls:ProductAPI"];
+
+builder.Services.AddScoped<IProductService, ProductService>();
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
