@@ -13,10 +13,10 @@ namespace Data.Services.ProductAPI.Migrations
                 columns: new[] { "ProductId", "CategoryName", "Description", "ImageUrl", "Name", "Price" },
                 values: new object[,]
                 {
-                    { 1, "Processors", "Processor quantity (Количество процессоров) ", "", "CPU", 15.0 },
-                    { 2, "Memory", "Total memory (Gb) / Общее количество памяти ", "", "Memory", 13.99 },
-                    { 3, "Disks", "Hard disk memory (Tb) / Память на жестких дисках", "", "HD", 10.99 },
-                    { 4, "Disks", "SSD memory  (Tb) / Память на SSD", "", "SSD", 15.0 }
+                    { 1, "Processors", "Processor quantity (Количество процессоров) ", "/images/11.jpg", "CPU", 15.0 },
+                    { 2, "Memory", "Total memory (Gb) / Общее количество памяти ", "/images/12.jpg", "Memory", 13.99 },
+                    { 3, "Disks", "Hard disk memory (Tb) / Память на жестких дисках", "/images/13.jpg", "HD", 10.99 },
+                    { 4, "Disks", "SSD memory  (Tb) / Память на SSD", "/images/14.jpg", "SSD", 15.0 }
                 });
         }
 
