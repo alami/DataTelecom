@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Data.Services.ProductAPI.Migrations
 {
-    [DbContext(typeof(ApplicationDdContexts))]
+    [DbContext(typeof(ApplicationDdContext))]
     [Migration("20211019121436_AddProductModelToDb")]
     partial class AddProductModelToDb
     {
