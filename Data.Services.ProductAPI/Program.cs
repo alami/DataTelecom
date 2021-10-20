@@ -1,3 +1,5 @@
+using AutoMapper;
+using Data.Services.ProductAPI;
 using Data.Services.ProductAPI.DdContexts;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +15,11 @@ builder.Services.AddDbContext<ApplicationDdContexts>(options =>
 {
     options.UseNpgsql("Host=localhost;Port=54331;Database=ProductAPI;Username=postgres;Password=postgres");
 });
+
+IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
+builder.Services.AddSingleton(mapper);
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 
 var app = builder.Build();
 
