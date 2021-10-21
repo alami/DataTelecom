@@ -5,11 +5,14 @@ VisualStudioVersion = 17.0.31808.319
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{A1932681-938E-4049-9F4F-6D1A84AEFDE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Web", "Data.Web\Data.Web.csproj", "{09769AD3-AF04-4722-97F9-239638788470}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.Web", "Data.Web\Data.Web.csproj", "{09769AD3-AF04-4722-97F9-239638788470}"
+	ProjectSection(ProjectDependencies) = postProject
+		{81F1B742-FD57-4F1C-AEF2-BFB89C8D83FD} = {81F1B742-FD57-4F1C-AEF2-BFB89C8D83FD}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{56195D05-EC2A-426D-97F1-EAB60C38D9DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Services.ProductAPI", "Data.Services.ProductAPI\Data.Services.ProductAPI.csproj", "{81F1B742-FD57-4F1C-AEF2-BFB89C8D83FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.Services.ProductAPI", "Data.Services.ProductAPI\Data.Services.ProductAPI.csproj", "{81F1B742-FD57-4F1C-AEF2-BFB89C8D83FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

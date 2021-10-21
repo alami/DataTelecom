@@ -5,7 +5,7 @@ using Data.Web.Services.IServices;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddHttpClient<IProductService, ProductService>();
-SD.ProductAPIBase = "https://localhost:7198/";// Configuration["ServiceUrls:ProductAPI"];
+SD.ProductAPIBase = "https://localhost:7198";// Configuration["ServiceUrls:ProductAPI"];
 
 builder.Services.AddScoped<IProductService, ProductService>();
 
