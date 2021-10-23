@@ -1,7 +1,34 @@
+using Data.Services.Identity;
+using Data.Services.Identity.DbContext;
+using Data.Services.Identity.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<ApplicationDdContext>(options =>
+{
+    options.UseNpgsql("Host=localhost;Port=54331;Database=ProductIdentityServer;Username=postgres;Password=postgres");
+});
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDdContext>().AddDefaultTokenProviders();
+builder.Services.AddIdentityServer(options =>
+{
+    options.Events.RaiseErrorEvents = true;
+    options.Events.RaiseInformationEvents = true;
+    options.Events.RaiseFailureEvents = true;
+    options.Events.RaiseSuccessEvents = true;
+    options.EmitStaticAudienceClaim = true;
+  })
+    .AddDeveloperSigningCredential()
+    .AddInMemoryIdentityResources(SD.IdentityResources)
+    .AddInMemoryApiScopes(SD.ApiScopes)
+    .AddInMemoryClients(SD.Clients)
+    .AddAspNetIdentity<ApplicationUser>();
+
+//builder.Services.AddDeveloperSigningCredential();
 
 var app = builder.Build();
 
@@ -17,7 +44,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseIdentityServer();
 app.UseAuthorization();
 
 app.MapControllerRoute(
