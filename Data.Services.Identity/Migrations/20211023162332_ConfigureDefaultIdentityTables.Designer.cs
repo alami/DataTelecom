@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Data.Services.Identity.Migrations
 {
-    [DbContext(typeof(ApplicationDdContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20211023162332_ConfigureDefaultIdentityTables")]
     partial class ConfigureDefaultIdentityTables
     {
