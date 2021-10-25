@@ -33,8 +33,8 @@ namespace Data.Services.Identity.Initializer
                 Email = "admin1@gmail.com",
                 EmailConfirmed = true,
                 PhoneNumber = "111111111111",
-                /*FirstName = "Ben",
-                LastName = "Admin"*/
+                FirstName = "Alisher",
+                LastName = "Admin"
             };
             _userManager.CreateAsync(adminUser, "Admin123*").GetAwaiter().GetResult();
             _userManager.AddToRoleAsync(adminUser, SD.Admin).GetAwaiter().GetResult();
@@ -52,8 +52,8 @@ namespace Data.Services.Identity.Initializer
                 Email = "customer1@gmail.com",
                 EmailConfirmed = true,
                 PhoneNumber = "111111111111",
-                /*FirstName = "Ben",
-                LastName = "Cust"*/
+                FirstName = "Aminov",
+                LastName = "Cust"
             };
 
             _userManager.CreateAsync(customerUser, "Admin123*").GetAwaiter().GetResult();
