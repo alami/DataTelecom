@@ -8,6 +8,8 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+var provider = builder.Services.BuildServiceProvider();
+var configuration = provider.GetRequiredService<IConfiguration>();
 
 // Add services to the container.
 
@@ -17,7 +19,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDdContext>(options =>
 {
-    options.UseNpgsql("Host=localhost;Port=54331;Database=ProductAPI;Username=postgres;Password=postgres");
+    options.UseNpgsql(configuration.GetValue<string>("ConnectionStrings:DefaultConnection"));
 });
 
 IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();

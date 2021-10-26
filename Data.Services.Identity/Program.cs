@@ -2,16 +2,20 @@ using Data.Services.Identity;
 using Data.Services.Identity.DbContext;
 using Data.Services.Identity.Initializer;
 using Data.Services.Identity.Models;
+using Duende.IdentityServer.Test;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+var provider = builder.Services.BuildServiceProvider();
+var configuration = provider.GetRequiredService<IConfiguration>();
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
-    options.UseNpgsql("Host=localhost;Port=54331;Database=ProductIdentityServer;Username=postgres;Password=postgres");
+    options.UseNpgsql(configuration.GetValue<string>("ConnectionStrings:DefaultConnection"));
 });
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
@@ -23,11 +27,13 @@ builder.Services.AddIdentityServer(options =>
     options.Events.RaiseSuccessEvents = true;
     options.EmitStaticAudienceClaim = true;
   })
-    .AddDeveloperSigningCredential()
+    .AddInMemoryClients(SD.Clients)
     .AddInMemoryIdentityResources(SD.IdentityResources)
     .AddInMemoryApiScopes(SD.ApiScopes)
-    .AddInMemoryClients(SD.Clients)
-    .AddAspNetIdentity<ApplicationUser>();
+    .AddTestUsers(new List<TestUser>())
+    .AddAspNetIdentity<ApplicationUser>()
+    .AddDeveloperSigningCredential()
+    ;
 
 //builder.Services.AddDeveloperSigningCredential();
 
