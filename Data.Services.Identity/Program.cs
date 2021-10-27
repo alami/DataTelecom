@@ -2,6 +2,8 @@ using Data.Services.Identity;
 using Data.Services.Identity.DbContext;
 using Data.Services.Identity.Initializer;
 using Data.Services.Identity.Models;
+using Data.Services.Identity.Services;
+using Duende.IdentityServer.Services;
 using Duende.IdentityServer.Test;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -37,6 +39,7 @@ builder.Services.AddIdentityServer(options =>
 
 //builder.Services.AddDeveloperSigningCredential();
 
+builder.Services.AddScoped<IProfileService, ProfileService>();
 builder.Services.AddScoped<IDbInitializer, DbInitializer>();
 
 var app = builder.Build();
