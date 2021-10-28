@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{56
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.Services.ProductAPI", "Data.Services.ProductAPI\Data.Services.ProductAPI.csproj", "{81F1B742-FD57-4F1C-AEF2-BFB89C8D83FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Services.Identity", "Data.Services.Identity\Data.Services.Identity.csproj", "{0F180DD9-B18A-4A3F-A416-652750DAD7CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.Services.Identity", "Data.Services.Identity\Data.Services.Identity.csproj", "{0F180DD9-B18A-4A3F-A416-652750DAD7CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

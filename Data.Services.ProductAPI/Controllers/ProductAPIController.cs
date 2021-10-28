@@ -33,7 +33,7 @@ namespace Data.Services.ProductAPI.Controllers
             return _response;
         }
         [HttpGet]
-        [Authorize]
+//        [Authorize]
         [Route("{id}")]
         public async Task<object> Get(int id)
         {
