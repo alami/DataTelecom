@@ -32,7 +32,7 @@ namespace Data.Services.ShoppingCartAPI.Controllers
             return _response;
         }
 
-        [HttpPost("AddCart")]
+        [HttpPost("AddCart")] 
         public async Task<object> AddCart(CartDto cartDto)
         {
             try
