@@ -1,6 +1,7 @@
 using AutoMapper;
 using Data.Services.ShoppingCartAPI;
 using Data.Services.ShoppingCartAPI.DbContexts;
+using Data.Services.ShoppingCartAPI.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -11,9 +12,9 @@ var builder = WebApplication.CreateBuilder(args);
 var provider = builder.Services.BuildServiceProvider();
 var configuration = provider.GetRequiredService<IConfiguration>();
 
-// builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-// builder.Services.AddSwaggerGen();
+builder.Services.AddControllers();
+uilder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 //---------COPY From ProductAPI --------
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {   
@@ -23,7 +24,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
 builder.Services.AddSingleton(mapper);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-//builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<ICartRepository, CartRepository>();
 
 builder.Services.AddAuthentication("Berear")
     .AddJwtBearer("Berear", options =>
