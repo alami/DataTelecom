@@ -1,4 +1,7 @@
-﻿using Data.Services.ShoppingCartAPI.Models.Dto;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Data.Services.ShoppingCartAPI.Models.Dto;
 using Data.Services.ShoppingCartAPI.Repository;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,7 +35,7 @@ namespace Data.Services.ShoppingCartAPI.Controllers
             return _response;
         }
 
-        [HttpPost("AddCart")] 
+        /*[HttpPost("AddCart")] 
         public async Task<object> AddCart(CartDto cartDto)
         {
             try
@@ -62,7 +65,7 @@ namespace Data.Services.ShoppingCartAPI.Controllers
                 _response.ErrorMessages = new List<string>() { ex.ToString() };
             }
             return _response;
-        }
+        }*/
 
         [HttpPost("RemoveCart")]
         public async Task<object> RemoveCart([FromBody] int cartId)

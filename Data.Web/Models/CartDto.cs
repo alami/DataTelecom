@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Data.Services.ShoppingCartAPI.Models.Dto
+namespace Data.Web.Models
 {
     public class CartDto
     {

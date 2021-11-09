@@ -1,4 +1,8 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using AutoMapper;
 using Data.Services.ProductAPI.DdContexts;
 using Data.Services.ProductAPI.Models;
 using Data.Services.ProductAPI.Models.Dto;

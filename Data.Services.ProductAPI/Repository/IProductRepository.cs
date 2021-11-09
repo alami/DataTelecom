@@ -1,4 +1,6 @@
-﻿using Data.Services.ProductAPI.Models.Dto;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Data.Services.ProductAPI.Models.Dto;
 
 namespace Data.Services.ProductAPI.Repository
 {

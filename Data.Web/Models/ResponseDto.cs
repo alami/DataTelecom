@@ -1,4 +1,6 @@
-﻿namespace Data.Web.Models
+﻿using System.Collections.Generic;
+
+namespace Data.Web.Models
 {
     public class ResponseDto
     {

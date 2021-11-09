@@ -1,4 +1,6 @@
-﻿namespace Data.Services.ShoppingCartAPI.Models
+﻿using System.Collections.Generic;
+
+namespace Data.Services.ShoppingCartAPI.Models
 {
     public class Cart
     {

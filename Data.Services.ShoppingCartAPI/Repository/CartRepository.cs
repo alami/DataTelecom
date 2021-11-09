@@ -1,4 +1,7 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Linq;
+using System.Threading.Tasks;
+using AutoMapper;
 using Data.Services.ShoppingCartAPI.DbContexts;
 using Data.Services.ShoppingCartAPI.Models;
 using Data.Services.ShoppingCartAPI.Models.Dto;

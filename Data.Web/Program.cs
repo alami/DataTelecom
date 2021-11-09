@@ -1,6 +1,11 @@
+using System;
 using Data.Web;
 using Data.Web.Services;
 using Data.Web.Services.IServices;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +14,7 @@ var configuration = provider.GetRequiredService<IConfiguration>();
 
 builder.Services.AddHttpClient<IProductService, ProductService>();
 SD.ProductAPIBase = configuration.GetValue<string>("ServiceUrls:ProductAPI");
+SD.ShoppingCartAPIBase = configuration.GetValue<string>("ServiceUrls:ShoppingCartAPI");
 
 builder.Services.AddScoped<IProductService, ProductService>();
 

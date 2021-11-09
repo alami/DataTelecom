@@ -1,4 +1,6 @@
-﻿namespace Data.Services.ProductAPI.Models.Dto
+﻿using System.Collections.Generic;
+
+namespace Data.Services.ProductAPI.Models.Dto
 {
     public class ResponseDto
     {

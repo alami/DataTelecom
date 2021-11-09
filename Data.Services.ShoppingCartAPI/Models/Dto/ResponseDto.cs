@@ -1,4 +1,6 @@
-﻿namespace Data.Services.ShoppingCartAPI.Models.Dto
+﻿using System.Collections.Generic;
+
+namespace Data.Services.ShoppingCartAPI.Models.Dto
 {
     public class ResponseDto
     {

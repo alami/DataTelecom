@@ -1,10 +1,13 @@
-﻿using Duende.IdentityServer.Extensions;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Duende.IdentityServer.Extensions;
 using Duende.IdentityServer.Models;
 using Duende.IdentityServer.Services;
 using IdentityModel;
 using Data.Services.Identity.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Data.Services.Identity.Services
 {

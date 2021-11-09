@@ -1,4 +1,7 @@
-﻿using Data.Services.ProductAPI.Models.Dto;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Data.Services.ProductAPI.Models.Dto;
 using Data.Services.ProductAPI.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

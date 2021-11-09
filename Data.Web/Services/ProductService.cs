@@ -1,4 +1,6 @@
-﻿using Data.Web.Models;
+﻿using System.Net.Http;
+using System.Threading.Tasks;
+using Data.Web.Models;
 using Data.Web.Services.IServices;
 
 namespace Data.Web.Services
