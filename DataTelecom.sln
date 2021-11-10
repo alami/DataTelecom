@@ -8,6 +8,7 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.Web", "Data.Web\Data.Web.csproj", "{09769AD3-AF04-4722-97F9-239638788470}"
 	ProjectSection(ProjectDependencies) = postProject
 		{81F1B742-FD57-4F1C-AEF2-BFB89C8D83FD} = {81F1B742-FD57-4F1C-AEF2-BFB89C8D83FD}
+		{6BF80F99-2BC0-4E8A-8647-48300B45EFE1} = {6BF80F99-2BC0-4E8A-8647-48300B45EFE1}
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{56195D05-EC2A-426D-97F1-EAB60C38D9DF}"
@@ -16,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.Services.ProductAPI", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.Services.Identity", "Data.Services.Identity\Data.Services.Identity.csproj", "{0F180DD9-B18A-4A3F-A416-652750DAD7CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Services.ShoppingCartAPI", "Data.Services.ShoppingCartAPI\Data.Services.ShoppingCartAPI.csproj", "{6BF80F99-2BC0-4E8A-8647-48300B45EFE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.Services.ShoppingCartAPI", "Data.Services.ShoppingCartAPI\Data.Services.ShoppingCartAPI.csproj", "{6BF80F99-2BC0-4E8A-8647-48300B45EFE1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

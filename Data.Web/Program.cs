@@ -1,7 +1,9 @@
 using System;
 using Data.Web;
-using Data.Web.Services;
+using Data.Web.Models;
 using Data.Web.Services.IServices;
+using Data.Web.Services;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,10 +15,13 @@ var provider = builder.Services.BuildServiceProvider();
 var configuration = provider.GetRequiredService<IConfiguration>();
 
 builder.Services.AddHttpClient<IProductService, ProductService>();
+builder.Services.AddHttpClient<ICartService, CartService>();
+
 SD.ProductAPIBase = configuration.GetValue<string>("ServiceUrls:ProductAPI");
 SD.ShoppingCartAPIBase = configuration.GetValue<string>("ServiceUrls:ShoppingCartAPI");
 
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICartService, CartService>();
 
 
 // Add services to the container.
@@ -34,6 +39,8 @@ builder.Services.AddAuthentication(options => {
         options.ClientId = "data";
         options.ClientSecret = "secret";
         options.ResponseType = "code";
+        options.ClaimActions.MapJsonKey("role", "role", "role");
+        options.ClaimActions.MapJsonKey("sub", "sub", "sub");
 
         options.TokenValidationParameters.NameClaimType = "name";
         options.TokenValidationParameters.RoleClaimType = "role";
@@ -61,6 +68,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Admin}/{action=Index}/{id?}");
 
 app.Run();

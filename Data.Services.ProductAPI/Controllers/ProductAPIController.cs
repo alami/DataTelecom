@@ -54,7 +54,7 @@ namespace Data.Services.ProductAPI.Controllers
             return _response;
         }
         [HttpPost]
-        [Authorize]
+        //[Authorize]
         public async Task<object> Post([FromBody] ProductDto productDto)
         {
             try
