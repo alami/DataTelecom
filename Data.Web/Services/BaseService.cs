@@ -40,7 +40,7 @@ namespace Data.Web.Services
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiRequest.AccessToken);
                 }
 
-                HttpResponseMessage apiResponse = null;
+                 HttpResponseMessage apiResponse = null;
                 switch (apiRequest.ApiType)
                 {
                     case SD.ApiType.POST:
