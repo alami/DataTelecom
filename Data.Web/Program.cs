@@ -16,12 +16,15 @@ var configuration = provider.GetRequiredService<IConfiguration>();
 
 builder.Services.AddHttpClient<IProductService, ProductService>();
 builder.Services.AddHttpClient<ICartService, CartService>();
+builder.Services.AddHttpClient<ICouponService, CouponService>();
 
 SD.ProductAPIBase = configuration.GetValue<string>("ServiceUrls:ProductAPI");
 SD.ShoppingCartAPIBase = configuration.GetValue<string>("ServiceUrls:ShoppingCartAPI");
+SD.CouponAPIBase = configuration.GetValue<string>("ServiceUrls:CouponAPI");
 
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICartService, CartService>();
+builder.Services.AddScoped<ICouponService, CouponService>();
 
 
 // Add services to the container.
