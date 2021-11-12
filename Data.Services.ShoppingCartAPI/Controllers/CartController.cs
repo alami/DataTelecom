@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Data.Services.ShoppingCartAPI.Models.Dto;
+﻿using Data.Services.ShoppingCartAPI.Models.Dto;
 using Data.Services.ShoppingCartAPI.Repository;
 using Microsoft.AspNetCore.Mvc;
 
@@ -35,7 +32,7 @@ namespace Data.Services.ShoppingCartAPI.Controllers
             return _response;
         }
 
-        /*[HttpPost("AddCart")] 
+        [HttpPost("AddCart")] 
         public async Task<object> AddCart(CartDto cartDto)
         {
             try
@@ -56,7 +53,7 @@ namespace Data.Services.ShoppingCartAPI.Controllers
         {
             try
             {
-                CartDto cartDt = await _cartRepository.CreateUpdateCart(cartDto);
+                CartDto cartDt = await _cartRepository.CreateUpdateCart( cartDto);
                 _response.Result = cartDt;
             }
             catch (Exception ex)
@@ -65,7 +62,7 @@ namespace Data.Services.ShoppingCartAPI.Controllers
                 _response.ErrorMessages = new List<string>() { ex.ToString() };
             }
             return _response;
-        }*/
+        }
 
         [HttpPost("RemoveCart")]
         public async Task<object> RemoveCart([FromBody] int cartId)
@@ -73,6 +70,39 @@ namespace Data.Services.ShoppingCartAPI.Controllers
             try
             {
                 bool isSuccess = await _cartRepository.RemoveFromCart(cartId);
+                _response.Result = isSuccess;
+            }
+            catch (Exception ex)
+            {
+                _response.IsSuccess = false;
+                _response.ErrorMessages = new List<string>() { ex.ToString() };
+            }
+            return _response;
+        }
+
+                [HttpPost("ApplyCoupon")]
+        public async Task<object> ApplyCoupon([FromBody] CartDto cartDto)
+        {
+            try
+            {
+                bool isSuccess = await _cartRepository.ApplyCoupon(cartDto.CartHeader.UserId,
+                    cartDto.CartHeader.CouponCode);
+                _response.Result = isSuccess;
+            }
+            catch (Exception ex)
+            {
+                _response.IsSuccess = false;
+                _response.ErrorMessages = new List<string>() { ex.ToString() };
+            }
+            return _response;
+        }
+
+        [HttpPost("RemoveCoupon")]
+        public async Task<object> RemoveCoupon([FromBody] string userId)
+        {
+            try
+            {
+                bool isSuccess = await _cartRepository.RemoveCoupon(userId);
                 _response.Result = isSuccess;
             }
             catch (Exception ex)
